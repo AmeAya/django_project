@@ -6,10 +6,11 @@
 </head>
 <body>
     {% for product in products %}
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
-        <p>{{ product.manufacturing_date }}</p>
+        <h1>
+            <a href="{% url 'product_detail' product.id %}">
+                {{ product.name }}
+            </a>
+        </h1>
     {% endfor %}
 </body>
 </html>

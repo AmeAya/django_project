@@ -4,6 +4,7 @@ from .views import *
 
 urlpatterns = [
     # path('', TemplateView.as_view(template_name="home.html"), name='home'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('', ProductListView.as_view(), name='home'),
 ]
 # path(<url:str>, <view:<class:view>>, name=<name:str>)
