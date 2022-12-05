@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Home Page</title>
+</head>
+<body>
+    {% for product in products %}
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}</p>
+        <p>{{ product.manufacturing_date }}</p>
+    {% endfor %}
+</body>
+</html>
