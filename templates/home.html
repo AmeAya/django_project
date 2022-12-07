@@ -5,6 +5,11 @@
     <title>Django Home Page</title>
 </head>
 <body>
+    <a href="{% url 'product_create' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
     {% for product in products %}
         <h1>
             <a href="{% url 'product_detail' product.id %}">
