@@ -5,11 +5,32 @@
     <title>Django Home Page</title>
 </head>
 <body>
-    <a href="{% url 'product_create' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            <h1>Hello, my creator {{ user.username }}!</h1>
+        {% else %}
+            <h1>Hello, {{ user.username }}!</h1>
+        {% endif %}
+        <a href="{% url 'logout' %}">
+            <button>
+                Log Out
+            </button>
+        </a>
+        <br>
+        <a href="{% url 'product_create' %}">
+            <button>
+                Add New Product
+            </button>
+        </a>
+    {% else %}
+        <h1>You not authenticated</h1>
+        <a href="{% url 'login' %}">
+            <button>
+                Log In
+            </button>
+        </a>
+    {% endif %}
+
     {% for product in products %}
         <h1>
             <a href="{% url 'product_detail' product.id %}">

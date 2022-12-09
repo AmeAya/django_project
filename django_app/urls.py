@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.generic.base import TemplateView
 from .views import *
 
@@ -8,6 +8,7 @@ urlpatterns = [
     path('product/new/', ProductCreateView.as_view(), name='product_create'),
     path('product/<int:pk>/update/', ProductUpdateView.as_view(), name='product_update'),
     path('product/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', ProductListView.as_view(), name='home'),
 ]
 # path(<url:str>, <view:<class:view>>, name=<name:str>)
