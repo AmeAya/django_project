@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <a href="{% url 'home' %}">
+        Home Page
+    </a>
+    {% if user.is_authenticated %}
+        <h1>{{ user.username }}</h1>
+        <p>User Id: {{ user.id }}</p>
+        <h4>{{ user.first_name }}</h4>
+        <h4>{{ user.last_name }}</h4>
+        <h4>{{ user.email }}</h4>
+    {% else %}
+        <h1>You not authenticated</h1>
+        <a href="{% url 'login' %}">
+            <button>
+                Log In
+            </button>
+        </a>
+        <br>
+        <a href="{% url 'registration' %}">
+            <button>
+                Registration
+            </button>
+        </a>
+    {% endif %}
+</body>
+</html>
