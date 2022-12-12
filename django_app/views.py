@@ -6,6 +6,7 @@ from django.views.generic import \
     UpdateView, \
     DeleteView
 from .models import *
+from .forms import ProductCreationForm
 from django.urls import reverse_lazy # same reverse, but not async
 
 # Create your views here.
@@ -20,9 +21,9 @@ class ProductDetailView(DetailView):
     context_object_name = 'product'
 
 class ProductCreateView(CreateView):
+    form_class = ProductCreationForm
     model = Product
     template_name = 'product_new.html'
-    fields = ['name', 'description', 'price', 'manufacturing_date', 'image'] # all fields
     # fields = '__all__' #  same all fields
 
 class ProductUpdateView(UpdateView):
